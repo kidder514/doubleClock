@@ -1,0 +1,81 @@
+@import 'src/variable.scss';
+
+.analog{
+
+    &.night {
+        &.container,.hour, .minute, .second {
+            background-color: $black;
+        }
+
+        .circle {
+            background-color: $white;
+            box-shadow: -13px 22px 29px -4px rgba(211, 209, 209, 0.59);
+            -webkit-box-shadow: -13px 22px 29px -4px rgba(211, 209, 209, 0.59);
+            -moz-box-shadow: -13px 22px 29px -4px rgba(211, 209, 209, 0.59);
+        }
+    }
+
+    &.container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .circle {
+        margin: 30px 0 ;
+        min-width: 200px;
+        min-height: 200px;
+        width: 30%;
+        background-color: $black;
+        border-radius: 50%;
+        position: relative;
+        overflow: hidden;
+        box-shadow: -13px 22px 29px -4px rgba(0,0,0,0.59);
+        -webkit-box-shadow: -13px 22px 29px -4px rgba(0,0,0,0.59);
+        -moz-box-shadow: -13px 22px 29px -4px rgba(0,0,0,0.59);
+    }
+
+    .circle::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+
+    .hour, .minute, .second {
+        background-color: $white;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .hour {
+        width: $analog-hour-thickness;
+        height: calc($analog-hour-length + $pointer-offset);
+        right: calc(50% - $analog-hour-thickness/2);
+        top: calc(50% - $analog-hour-length);
+        transform-origin: center calc($analog-hour-length/($analog-hour-length + $pointer-offset)*100%);
+    }
+
+    .minute {
+        width: $analog-minute-thickness;
+        height: calc($analog-minute-length + $pointer-offset);
+        right: calc(50% - $analog-minute-thickness/2);
+        top: calc(50% - $analog-minute-length);
+        transform-origin: center calc($analog-minute-length/($analog-minute-length + $pointer-offset)*100%);
+    }
+
+    .second {
+        width: $analog-second-thickness;
+        height: calc($analog-second-length + $pointer-offset);
+        right: calc(50% - $analog-second-thickness/2);
+        top: calc(50% - $analog-second-length);
+        transform-origin: center calc($analog-second-length/($analog-second-length + $pointer-offset)*100%);
+    }
+    
+    .bottom {
+        background-color: $grey;
+        height: 35%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: 1;
+    }
+}

@@ -1,0 +1,9 @@
+@import 'src/variable.scss';
+
+.digital{
+    background-color: $white;
+
+    &.night {
+        background-color: $black;
+    }
+}
